@@ -12,11 +12,11 @@ export default {
         }
     },
     mounted() {
-        if (this.score < 150) {
+        if (this.score < 250) {
             this.rank = 'Flash'
-        }else if (this.score < 250) {
+        }else if (this.score < 400) {
             this.rank = 'Ninja'
-        }else if (this.score < 450) {
+        }else if (this.score < 600) {
             this.rank = 'Normal'
         }else {
             this.rank = 'Snail ...'
