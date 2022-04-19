@@ -1,8 +1,8 @@
 <template>
   <h1>REACTION TIMER</h1>
   <button @click="start" :disabled="isPlayng">play</button>
-  <Block v-if="isPlayng" :delay="delay" @end="endGame" />
   <Result v-if="showResults" :score="score" />
+  <Block v-if="isPlayng" :delay="delay" @end="endGame" />
 </template>
 
 <script>
@@ -44,6 +44,10 @@ export default {
   text-align: center;
   color: #444;
   margin-top: 60px;
+}
+.pole {
+  width: 1200px;
+  height: 600px;
 }
 button {
   background: rgb(30, 118, 90);

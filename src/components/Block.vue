@@ -1,6 +1,6 @@
 <template>
-  <div class="block" v-if="showBlock" @click="stopTimer">
-      click me
+  <div class="block" :style="{'top': fromTop, 'left': fromLeft}" v-if="showBlock" @click="stopTimer">
+      click me 
   </div>
 </template>
 
@@ -12,6 +12,8 @@ export default {
             showBlock: false,
             timer: null,
             reactionTime: 0,
+            fromLeft: Math.floor(Math.random() * 80) + '%',
+            fromTop: Math.floor(Math.random() * 80) + '%',
         }
     },
     mounted() {
@@ -36,12 +38,13 @@ export default {
 
 <style>
     .block {
-        width: 400px;
+        position: absolute;
+        width: 200px;
         border-radius: 20px;
         background: rgb(18, 84, 84);
         color: white;
         text-align: center;
-        padding: 100px 0;
-        margin: 40px auto;
+        padding: 80px 0;
+        /* margin: 40px; */
     }
 </style>
