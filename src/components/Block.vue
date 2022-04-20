@@ -1,5 +1,5 @@
 <template>
-  <div class="block" :style="{'top': fromTop, 'left': fromLeft}" v-if="showBlock" @click="stopTimer">
+  <div class="block" :style="{'top': fromTop, 'left': fromLeft, 'background': getRandomColor()}" v-if="showBlock" @click="stopTimer">
       click me 
   </div>
 </template>
@@ -12,8 +12,8 @@ export default {
             showBlock: false,
             timer: null,
             reactionTime: 0,
-            fromLeft: Math.floor(Math.random() * 80) + '%',
-            fromTop: Math.floor(Math.random() * 80) + '%',
+            fromLeft: this.getRandomNum(80) + '%',
+            fromTop: this.getRandomNum(80) + '%',
         }
     },
     mounted() {
@@ -23,6 +23,9 @@ export default {
         }, this.delay)
     },
     methods: {
+        getRandomNum(n) {
+            return Math.floor(Math.random() * n)
+        },
         startTimer() {
             this.timer = setInterval(() => {
                 this.reactionTime += 10
@@ -31,6 +34,13 @@ export default {
         stopTimer() {
             clearInterval(this.timer)
             this.$emit('end', this.reactionTime)
+        },
+        getRandomColor() {
+            const r = this.getRandomNum(255)
+            const g = this.getRandomNum(255)
+            const b = this.getRandomNum(255)
+            
+            return `rgb(${r}, ${g}, ${b})`
         }
     }
 }
@@ -38,13 +48,12 @@ export default {
 
 <style>
     .block {
+        opacity: 0.7;
         position: absolute;
         width: 200px;
-        border-radius: 20px;
-        background: rgb(18, 84, 84);
-        color: white;
+        border-radius: 100px;
+        color: black;
         text-align: center;
         padding: 80px 0;
-        /* margin: 40px; */
     }
 </style>

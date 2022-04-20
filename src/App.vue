@@ -1,8 +1,9 @@
 <template>
-  <h1>REACTION TIMER</h1>
+  <h1> {{ this.TotalClicks }} REACTION TIMER</h1>
+  <h3>Remaining clicks: {{ this.TotalClicks - this.loops }}</h3>
   <button @click="start" :disabled="isPlayng">play</button>
-  <Result v-if="showResults" :score="score" />
-  <Block v-if="isPlayng" :delay="delay" @end="endGame" />
+  <Result v-if="showResults" :score="finalScore" />
+  <Block v-if="isPlayng" :delay="delay" @end="nextClick" />
 </template>
 
 <script>
@@ -14,10 +15,13 @@ export default {
   components: { Block, Result },
   data() {
     return {
+      TotalClicks: 5,
       isPlayng: false,
       delay: null,
-      score: null,
+      score: 0,
+      finalScore: 0,
       showResults: false,
+      loops: 0,
     }
   },
   methods: {
@@ -26,10 +30,26 @@ export default {
       this.isPlayng = true
       this.showResults = false
     },
-    endGame(reactionTime) {
-      this.score = reactionTime
+    nextClick(reactionTime) {
+      this.loops += 1
+      this.score += reactionTime
+      if (this.loops == this.TotalClicks) {
+        this.finalScore = this.score
+        this.loops = 0
+        this.score = 0
+        this.endGame()
+      }else {
+        this.isPlayng = false
+        setTimeout(() => {
+            this.start()
+        }, 1)
+      }
+    },
+    endGame() {
+      // this.score = reactionTime
       this.isPlayng = false
       this.showResults =true
+
     }
   },
 
