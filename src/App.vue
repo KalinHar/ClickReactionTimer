@@ -1,6 +1,6 @@
 <template>
   <h1> {{ this.TotalClicks }} REACTION TIMER</h1>
-  <h3>Remaining clicks: {{ this.TotalClicks - this.loops }}</h3>
+  <h3 v-if="isPlayng">Remaining clicks: {{ this.TotalClicks - this.loops }}</h3>
   <button @click="start" :disabled="isPlayng">play</button>
   <Result v-if="showResults" :score="finalScore" />
   <Block v-if="isPlayng" :delay="delay" @end="nextClick" />
@@ -46,7 +46,6 @@ export default {
       }
     },
     endGame() {
-      // this.score = reactionTime
       this.isPlayng = false
       this.showResults =true
 
