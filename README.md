@@ -1,9 +1,6 @@
 # reaction-timer
 
-## Web page
-```
-https://kalinhar.github.io/ClickReactionTimer/
-```
+[Link to Page](https://kalinhar.github.io/ClickReactionTimer/)
 
 ## Project setup
 ```
