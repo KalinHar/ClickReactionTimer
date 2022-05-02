@@ -1,5 +1,10 @@
 # reaction-timer
 
+## Web page
+```
+https://kalinhar.github.io/ClickReactionTimer/
+```
+
 ## Project setup
 ```
 npm install
