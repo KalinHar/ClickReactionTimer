@@ -1,6 +1,6 @@
 # reaction-timer
 
-[Link to Page](https://kalinhar.github.io/ClickReactionTimer/)
+[Live Demo](https://kalinhar.github.io/ClickReactionTimer/)
 
 ## Project setup
 ```
