@@ -1,4 +1,5 @@
 # reaction-timer
+Check your reaction by clicking on five random generated targets.
 
 [Live Demo](https://kalinhar.github.io/ClickReactionTimer/)
 
